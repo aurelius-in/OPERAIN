@@ -1,4 +1,6 @@
 from fastapi import APIRouter, Request, HTTPException
+import hmac
+import hashlib
 from sqlalchemy.orm import Session
 import json
 
@@ -8,6 +10,7 @@ from api.models.bom_item import BomItem
 from api.models.incident import Incident
 from api.models.eval_report import EvalReport
 from api.models.release import Release
+from api.core.config import settings
 
 
 router = APIRouter(prefix="/webhooks", tags=["webhooks"]) 
@@ -16,9 +19,17 @@ router = APIRouter(prefix="/webhooks", tags=["webhooks"])
 @router.post("/{source}")
 async def receive_webhook(source: str, request: Request, db: Session = next(get_db_session())):
 	try:
+		raw = await request.body()
 		payload = await request.json()
 	except Exception as e:
 		raise HTTPException(status_code=400, detail="Invalid JSON") from e
+
+	# optional signature verification if header present
+	sig = request.headers.get("X-Signature")
+	if sig:
+		computed = hmac.new(settings.webhook_secret.encode("utf-8"), raw, hashlib.sha256).hexdigest()
+		if not hmac.compare_digest(sig, computed):
+			raise HTTPException(status_code=401, detail="Invalid signature")
 
 	# store raw event
 	event = WebhookEvent(source=source, event_type=str(payload.get("event")), payload_json=json.dumps(payload))

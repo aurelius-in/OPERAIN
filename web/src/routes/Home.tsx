@@ -5,12 +5,13 @@ type Health = { [k: string]: { status: 'green' | 'yellow' | 'red' } }
 
 export default function Home() {
 	const [health, setHealth] = useState<Health>({})
+	const [settings, setSettings] = useState<any>({})
 	useEffect(() => {
 		axios.get('/api/integrations/health').then(r => setHealth(r.data)).catch(() => setHealth({}))
+		axios.get('/api/settings').then(r => setSettings(r.data)).catch(() => setSettings({}))
 	}, [])
 
 	const open = (url?: string) => { if (url) window.open(url, '_blank') }
-	const env = (name: string) => (import.meta.env[`VITE_${name}` as any] as string | undefined)
 
 	return (
 		<div className="tile-grid">
@@ -18,7 +19,7 @@ export default function Home() {
 				<h3>Plan (BayWalk)</h3>
 				<span className={`badge ${health.baywalk?.status || 'red'}`}>{health.baywalk?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
-					<button onClick={() => open(env('BAYWALK_BASE_URL'))}>Open BayWalk</button>
+					<button onClick={() => open(settings.baywalk_base_url)}>Open BayWalk</button>
 				</div>
 			</div>
 			<div className="tile">
@@ -32,28 +33,28 @@ export default function Home() {
 				<h3>Prove (PerceptionLab)</h3>
 				<span className={`badge ${health.perceptionlab?.status || 'red'}`}>{health.perceptionlab?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
-					<button onClick={() => open(env('PERCEPTIONLAB_BASE_URL'))}>Open PerceptionLab</button>
+					<button onClick={() => open(settings.perceptionlab_base_url)}>Open PerceptionLab</button>
 				</div>
 			</div>
 			<div className="tile">
 				<h3>Run (EdgeSight-QA)</h3>
 				<span className={`badge ${health.edgesight?.status || 'red'}`}>{health.edgesight?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
-					<button onClick={() => open(env('EDGESIGHT_BASE_URL'))}>Open EdgeSight-QA</button>
+					<button onClick={() => open(settings.edgesight_base_url)}>Open EdgeSight-QA</button>
 				</div>
 			</div>
 			<div className="tile">
 				<h3>Comply (RAINLane)</h3>
 				<span className={`badge ${health.rainlane?.status || 'red'}`}>{health.rainlane?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
-					<button onClick={() => open(env('RAINLANE_BASE_URL'))}>Open RAINLane</button>
+					<button onClick={() => open(settings.rainlane_base_url)}>Open RAINLane</button>
 				</div>
 			</div>
 			<div className="tile">
 				<h3>Operate (DriftHawk)</h3>
 				<span className={`badge ${health.drifthawk?.status || 'red'}`}>{health.drifthawk?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
-					<button onClick={() => open(env('DRIFTHAWK_BASE_URL'))}>Open DriftHawk</button>
+					<button onClick={() => open(settings.drifthawk_base_url)}>Open DriftHawk</button>
 				</div>
 			</div>
 			<div className="tile">
