@@ -1,151 +1,68 @@
-<p align="center">
-  <img src="operain.png" alt="OPERAIN wordmark" width="45%">
-</p>
+<p align="right"><img src="rain-white.png" width="70" alt="RAIN logo"> <b style="font-size:12px;">Reliable AI Network, LLC</b></p>
+<p align="center"><img src="operain.png" width="45%" alt="OPERAIN wordmark"></p>
+# Seed Proposal
 
-# OPERAIN — Investor Brief
+$1,000,000 on a post-money SAFE
 
-**One front door from site walk to signed release.**  
-OPERAIN is a seven-step suite that turns a site survey into running, audit-ready operations: **Plan → Procure and Provision → Prove → Run → Comply → Operate → Improve.**  
-The suite implements **Step 2 (Procure and Provision)** and **Step 7 (Improve/CAPA and Retrain)** natively, and **orchestrates** five existing apps (BayWalk, PerceptionLab, EdgeSight-QA, RAINLane, DriftHawk) via links, APIs, and webhooks.
+## Executive summary
+OPERAIN turns a site survey into running, audit-ready operations: **Plan -> Procure and Provision -> Prove -> Run -> Comply -> Operate -> Improve**. This round funds the hub and Steps 2 and 7 while linking to five existing apps.
 
----
+## Use of funds (12 to 15 months)
 
-## 1) Executive summary
-- **Problem:** Physical operations (factories, warehouses, retail, hospitals, data centers) leak value through slow planning, scattered buying, guess-based model choices, ad-hoc QA, risky deployments, and audit scramble.  
-- **Solution:** OPERAIN unifies the lifecycle—planning, purchasing, evaluation, runtime QA, SOP answers, governed releases, and continuous improvement—with an **evidence locker** for instant audits.  
-- **Why now:** Vision AI and edge computing are mainstream; enterprises need **operationalization**, not pilots.  
-- **Business model:** Subscription (per site, line, or cluster) + implementation services when needed.  
-- **Proof:** Each component already exists as a working app; OPERAIN is the orchestrator and glue that compounds value.
+| Category | Allocation | Amount | Notes |
+|---|---|---|---|
+| Marketing, outreach, and sales | 25% | $250,000 | Field marketing, events, content, solution demos, pilot acquisition, sales ops |
+| Development, improvements, and maintenance | 20% | $200,000 | OPERAIN hub, Step 2 and Step 7, evidence locker, reliability, webhooks |
+| Security and compliance | 15% | $150,000 | Image signing, SBOM, policy gates, SOC 2 readiness |
+| Pilot services (offset by revenue) | 15% | $150,000 | On-site integration, SCADA connectors, change management support |
+| Cloud and tooling | 10% | $100,000 | Hosting, observability, CI/CD, test environments |
+| G and A and legal | 10% | $100,000 | Contracts, accounting, IP, insurance |
+| Contingency and reserve | 5% | $50,000 | Unforeseen costs |
 
----
+## 45-day beta program
 
-## 2) Product at a glance
+- **Length:** 45 days of full-feature access for one site or one line.
+- **Entry:** Billing details are collected upfront; billing begins on day 46 unless the customer opts out in-app before day 45.
+- **Expectation:** One brief survey per week (5 to 8 minutes) on usability, value, and outcomes such as savings, throughput, and error rates.
+- **Key issuance:** Each completed weekly survey unlocks the next week's license key; if a survey is more than 7 days late, access pauses until it is completed.
+- **Value promise:** Customers keep their data and reports regardless of purchase decision.
+- **Goal:** Customers validate savings and reliability on their own floor; we capture precise, on-site feedback to improve rapidly.
 
-| Step | Delivered by | Core value |
+## Pricing strategy
+
+First three customers receive 12-month pricing at one-quarter of target. On day 46, subscriptions begin at the intro rate unless the customer opts out. New customers after the first three will see modest quarterly list increases as the product matures.
+
+| SKU | Intro monthly (1/4 target) | Target monthly |
 |---|---|---|
-| 1. Plan | BayWalk (external) | From walk-through to camera layout, BOM, power and network plan, tasks |
-| 2. Procure and Provision | **OPERAIN** | PO board, device vault, provisioning wizard, camera discovery |
-| 3. Prove | PerceptionLab (external) | Head-to-head model reports (accuracy, latency), PDFs |
-| 4. Run | EdgeSight-QA (external) | Real-time pass/fail, snapshots, write-back to plant systems |
-| 5. Comply | RAINLane (external) | SOP answers with citations; green and yellow lanes |
-| 6. Operate | DriftHawk (external) | GitOps, policy gates, signed releases and rollbacks |
-| 7. Improve | **OPERAIN** | Incident → CAPA → re-test → promote; all evidence linked |
+| BayWalk | $500 | $2,000 |
+| PerceptionLab | $750 | $3,000 |
+| EdgeSight-QA (per line) | $2,500 to $5,000 | $10,000 to $20,000 |
+| RAINLane | $750 to $1,500 | $3,000 to $6,000 |
+| DriftHawk (per cluster) | $1,250 to $3,000 | $5,000 to $12,000 |
+| OPERAIN Step 2 (suite-only) | $750 to $1,500 | $3,000 to $6,000 |
+| OPERAIN Step 7 (suite-only) | $1,000 to $2,000 | $4,000 to $8,000 |
+| OPERAIN Suite (per site) | $6,250 to $15,000 | $25,000 to $60,000 |
 
-**Evidence Locker:** central index of reports, receipts, snapshots, approvals.
+## What the investor gets
 
----
+- **Primary structure:** post-money SAFE with a valuation cap (example: $15M post), pro-rata rights, and information rights.
+- A $1,000,000 investment at a $15,000,000 post implies about **6.7%** ownership. No dividends assumed.
+- **ROI scenarios:** $3M ARR at 6x = $18M value; $8M ARR at 7x = $56M value. Equity value for 6.7% is ~$1.2M and ~$3.75M, respectively. These are illustrative.
+- **Optional kicker (negotiable):** 1% of topline until $250,000 is repaid, then sunset.
 
-## 3) ICP and buyer
-- **Primary industries:** Pharma and medical devices, food and beverage/CPG, logistics and 3PL, large retail ops, electronics/auto assembly, data centers, hospitals.  
-- **Economic buyer:** VP Operations, VP Quality, Head of Manufacturing IT/OT, Plant or Facility Manager.  
-- **Daily users:** Ops and Quality managers, process/manufacturing engineers, platform and SRE, line supervisors, auditors.
+## Proof, safety, and diligence
 
----
+- **Evidence by default:** Signed releases, model reports, pass or fail images, and SOP citations are captured in an evidence locker.
+- **Customer pilots:** 45-day structured beta with weekly outcomes. Data is linked to specific batches, SKUs, and change tickets.
+- **References:** We will provide customer and advisor references, along with demo access and architecture documentation.
+- **Security posture:** Image signing, SBOM, and policy gates; SOC 2 readiness plan.
+- **Financial discipline:** Fixed budget, staged hiring, and a 5 percent contingency reserve.
 
-## 4) Value and ROI (monthly, per site or line)
+## Independent references
 
-| App/Step | Typical impact (conservative) |
-|---|---|
-| BayWalk (Plan) | \$2k–\$7k labor and overbuy avoided |
-| **Procure and Provision (OPERAIN)** | \$5k–\$20k fewer delays and setup errors |
-| PerceptionLab (Prove) | \$10k–\$40k better model choice; faster evals |
-| EdgeSight-QA (Run) | \$60k–\$250k per line via scrap/rework reduction (0.5–2%) |
-| RAINLane (Comply) | \$17k–\$50k faster changeovers and fewer policy mistakes |
-| DriftHawk (Operate) | \$10k–\$40k fewer failed deploys/outages |
-| **Improve (OPERAIN)** | \$10k–\$60k faster CAPA, steady accuracy gains |
+- World Economic Forum — Global Lighthouse Network: documented productivity and quality gains.
+- McKinsey — Manufacturing lighthouses and AI: defect and downtime reductions in mature plants.
+- Deloitte — Smart Manufacturing Survey 2025: budgets and adoption of AI, vision, and edge continue to rise.
+- Google Cloud — DORA/Accelerate: lower change failure rates and faster recovery with mature DevOps.
+- BCG — The AI-driven factory: material cost and throughput improvements.
 
-> Rule of thumb: busy lines cost \$3k–\$10k/hr when down; a 0.5–2% defect delta on \$5–\$15M monthly output is material.
-
-**Illustrative ROI (single regulated line):** ~\$160k+/mo value vs. suite price \$25k–\$60k → **3–6× monthly ROI**.
-
----
-
-## 5) Pricing (subscription)
-
-| SKU | Price guidance |
-|---|---|
-| BayWalk | \$1k–\$3k per site |
-| PerceptionLab | \$2k–\$5k per site |
-| EdgeSight-QA | \$8k–\$20k per line |
-| RAINLane | \$3k–\$6k per site |
-| DriftHawk | \$5k–\$12k per cluster |
-| **OPERAIN Step 2** | \$2k–\$6k per site *(suite-only)* |
-| **OPERAIN Step 7** | \$3k–\$8k per site *(suite-only)* |
-| **OPERAIN Suite** | \$25k–\$60k per site (covers 1–2 lines) |
-
-Volume discounts for multi-site or multi-line deployments (10–25%).
-
----
-
-## 6) Go-to-market
-- **Land:** PerceptionLab + EdgeSight-QA for immediate scrap reduction and proof.  
-- **Expand:** Add RAINLane and DriftHawk for compliance and governed releases.  
-- **Standardize:** Adopt OPERAIN suite to stitch procurement and continuous improvement, consolidate evidence, and scale.
-
----
-
-## 7) User stories (abridged)
-
-- **Pharma Quality Manager:** choose Model B (+14% accuracy) in PerceptionLab; deploy via DriftHawk with signatures; RAINLane guides changeover; Improve closes glare-related incidents.  
-- **3PL Ops Director:** plan pack-station cameras; Procure and Provision devices; EdgeSight-QA marks pass/fail with snapshots; Improve routes misses into CAPA.  
-- **Retail Platform Lead:** policy gates and signed images cut failed releases; rollback in seconds when canary trips.
-
----
-
-## 8) Technology and integrations (plain language)
-- **Hub and steps:** OPERAIN provides the UI hub, Step 2 and Step 7, and an evidence locker.  
-- **External apps:** BayWalk, PerceptionLab, EdgeSight-QA, RAINLane, DriftHawk remain separate services; OPERAIN opens them and exchanges events via health checks, APIs, and webhooks.  
-- **Stack:** React/TypeScript front end; FastAPI back end; Postgres; optional Redis; Docker; GitHub Actions.  
-- **Ops connectors:** Ignition, MQTT, OPC-UA (via EdgeSight-QA); OpenShift/Kubernetes; GitOps; policy-as-code and signed supply chain.
-
----
-
-## 9) Defensibility
-- **Workflow ownership:** OPERAIN sits at the control point (procurement and improvement) where value compounds.  
-- **Evidence by default:** signed releases, reports, pass/fail snapshots, and SOP citations tied to batches/SKUs.  
-- **Switching cost:** once procurement, runtime QA, and CAPA loop are unified, replacing one point tool preserves the hub.
-
----
-
-## 10) Risks and mitigations
-
-| Risk | Mitigation |
-|---|---|
-| Integration friction | Thin adapters, documented webhooks, env-based endpoints |
-| Air-gapped sites | Offline-safe ops, signed artifacts, file-based sync |
-| Change management | Role-based UI, small wins first (one line, one SKU) |
-| Model drift | Improve loop enforces re-test before promote |
-
----
-
-## 11) Roadmap (next 2–3 quarters)
-- Model registry UI (promote, compare, retire).  
-- Digital-twin camera coverage simulator.  
-- Auto-generated audit pack ZIP by batch or SKU.  
-- Fleet health (camera uptime, edge temps, queue depth).  
-- Cost and ROI board.
-
----
-
-## 12) Metrics we track
-- Time from plan to first run.  
-- Scrap/rework delta and false reject rate.  
-- Changeover time and SOP query resolution.  
-- Release failure rate and rollback time.  
-- Incident recurrence rate and time to CAPA close.  
-- Evidence completeness (reports, receipts, snapshots per batch).
-
----
-
-## 13) Diagrams (GitHub-friendly Mermaid)
-
-**Lifecycle (vertical)**  
-```mermaid
-flowchart TB
-  A["Plan (BayWalk)"] --> B["Procure and Provision (OPERAIN)"]
-  B --> C["Prove (PerceptionLab)"]
-  C --> D["Run (EdgeSight-QA)"]
-  D --> E["Comply (RAINLane)"]
-  E --> F["Operate (DriftHawk)"]
-  F --> G["Improve (OPERAIN)"]
-  G --> C
