@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from api.core.logging import configure_logging
 from api.routers import health
-from api.routers import procure, improve, integrations, webhooks
+from api.routers import procure, improve, integrations, webhooks, evidence
 
 
 def create_app() -> FastAPI:
@@ -21,6 +21,7 @@ def create_app() -> FastAPI:
 	app.include_router(improve.router)
 	app.include_router(integrations.router)
 	app.include_router(webhooks.router)
+	app.include_router(evidence.router)
 	return app
 
 
