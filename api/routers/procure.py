@@ -7,6 +7,7 @@ import json as jsonlib
 from api.core.db import get_db_session
 from api.models.bom_item import BomItem
 from api.models.asset import Asset
+from api.models.po import PO
 
 
 router = APIRouter(prefix="/procure", tags=["procure"]) 
@@ -71,4 +72,13 @@ def provision_asset(asset_id: int, db: Session = Depends(get_db_session)):
 def discover_cameras(endpoints: list[dict]):
 	# stub: accept and return
 	return {"saved": len(endpoints)}
+
+
+@router.post("/po")
+def create_po(po: dict, db: Session = Depends(get_db_session)):
+	p = PO(project_id=int(po.get("project_id", 0)), body_json=jsonlib.dumps(po))
+	db.add(p)
+	db.commit()
+	db.refresh(p)
+	return p
 
