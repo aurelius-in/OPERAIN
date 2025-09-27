@@ -38,6 +38,15 @@ async def import_bom(file: UploadFile = File(...), db: Session = Depends(get_db_
 	return {"created": len(created)}
 
 
+@router.get("/export-bom.csv")
+def export_bom_csv(db: Session = Depends(get_db_session)):
+	rows = db.query(BomItem).all()
+	csv_lines = ["sku,description,qty,alt_sku"]
+	for r in rows:
+		csv_lines.append(f"{r.sku},{r.description},{r.qty},{r.alt_sku}")
+	return "\n".join(csv_lines)
+
+
 @router.get("/bom")
 def list_bom(db: Session = Depends(get_db_session)):
 	rows = db.query(BomItem).all()
