@@ -1,0 +1,35 @@
+# Angel Data Room — Index & Checklist
+
+- Deck/Final.pdf ✅
+- OnePager/Overview.pdf or .md ✅
+- Product/
+  - 2‑min outcome videos (one per SKU) ✅
+  - Sandbox link + instructions ✅
+  - Architecture & reliability (SLIs/SLOs, incident process) ✅
+  - Security posture (signing, SBOM, policy gates), SOC 2 plan ✅
+- Market/
+  - ICP 1‑pager ✅
+  - TAM/SAM/SOM with math ✅
+  - Competitive landscape vs 3–5 named peers ✅
+- Traction/
+  - Pipeline (top 20, stage, next step) ✅
+  - LOIs/Quotes/Pilot SOWs ✅
+  - Revenue cohorts & NRR ✅
+- Financials/
+  - 24‑mo model (this file) ✅
+  - Historical bank & cash flows (6 months) ✅
+  - Use of funds & milestones mapping ✅
+- Legal/
+  - DE C‑Corp docs (COI, bylaws) ✅
+  - Cap table & option pool ✅
+  - IP assignments & contractor agreements ✅
+  - DPAs, subprocessors list ✅
+  - Insurance (GL, Cyber, E&O) ✅
+- Team/
+  - Bios & references ✅
+  - Hiring plan tied to milestones ✅
+- Terms/
+  - SAFE template & term summary ✅
+  - Information & pro‑rata rights language ✅
+- References/
+  - Customer/advisor references with contact permission ✅
