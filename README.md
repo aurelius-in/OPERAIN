@@ -1,5 +1,4 @@
 ![OPERAIN wordmark](operain.png)
-##### *The logo*
 ##### *The **OPERAIN** logo is a simple promise in visual form: we take intelligence and make it safely operational. The green letters **OPER** and **N** stand for trusted, day-to-day operations—“green means go.” The yellow **AI** highlights the decision-making piece that deserves extra attention before it goes live. Above the name, a clean green arch represents one governed doorway from planning to production, while the three dots—red, yellow, green—echo our stop-review-go lanes for quality and compliance. Together, the mark says: OPERAIN guides ideas through careful review into reliable, audit-ready operations, all in one smooth flow.*
 ---
 > **OPERAIN** is a seven-step suite that turns a site walk into running, audit-ready operations—plan the deployment, procure and provision hardware, compare models, run real-time QA, answer SOPs with proof, deploy safely, and continuously improve.
