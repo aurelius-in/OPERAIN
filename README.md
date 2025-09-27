@@ -166,12 +166,12 @@ Steps **2 (Procure & Provision)** and **7 (Improve/CAPA)** are **suite-only glue
 
 ```mermaid
 flowchart TB
-  A[Plan (BayWalk)] --> B[Procure &amp; Provision (POs, Device Vault, Enrollment)]
-  B --> C[Prove (PerceptionLab Report)]
-  C --> D[Run (EdgeSight-QA Pass/Fail)]
-  D --> E[Comply (RAINLane Green/Yellow)]
-  E --> F[Operate (DriftHawk Signed Release)]
-  F --> G[Improve (CAPA, Retrain, Re-test, Redeploy)]
+  A["Plan (BayWalk)"] --> B["Procure and Provision (POs, Device Vault, Enrollment)"]
+  B --> C["Prove (PerceptionLab report)"]
+  C --> D["Run (EdgeSight-QA pass/fail)"]
+  D --> E["Comply (RAINLane green/yellow)"]
+  E --> F["Operate (DriftHawk signed release)"]
+  F --> G["Improve (CAPA, retrain, re-test, redeploy)"]
   G --> C
 
 ```
@@ -182,44 +182,44 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  subgraph OPERAIN Hub UI
-    Home[Home: 7 Tiles]
-    Locker[Evidence Locker]
+  subgraph Hub["OPERAIN Hub UI"]
+    Home["Home: seven tiles"]
+    Locker["Evidence Locker"]
   end
 
-  subgraph Plan
-    BW[BayWalk Service]
+  subgraph Plan["Plan"]
+    BW["BayWalk service"]
   end
 
-  subgraph Procure &amp; Provision
-    POs[PO Board]
-    Devices[Device Vault]
-    Enroll[Provision Wizard]
+  subgraph Procure["Procure and Provision"]
+    POs["PO board"]
+    Devices["Device vault"]
+    Enroll["Provision wizard"]
   end
 
-  subgraph Prove
-    PL[PerceptionLab API]
-    Metrics[Accuracy and Latency Metrics]
+  subgraph Prove["Prove"]
+    PL["PerceptionLab API"]
+    Metrics["Accuracy and latency metrics"]
   end
 
-  subgraph Run
-    Edge[Edge Services]
-    SCADA[Ignition / MQTT / OPC-UA]
+  subgraph Run["Run"]
+    Edge["Edge services"]
+    SCADA["Ignition · MQTT · OPC-UA"]
   end
 
-  subgraph Comply
-    RL[RAINLane Q&amp;A]
+  subgraph Comply["Comply"]
+    RL["RAINLane Q and A"]
   end
 
-  subgraph Operate
-    DH[DriftHawk GitOps]
-    Policy[Policy Gates (OPA)]
-    Supply[SBOM &amp; Signing]
+  subgraph Operate["Operate"]
+    DH["DriftHawk GitOps"]
+    Policy["Policy gates (OPA)"]
+    Supply["SBOM and signing"]
   end
 
-  subgraph Improve
-    INC[Incident Inbox]
-    CAPA[CAPA Board]
+  subgraph Improve["Improve"]
+    INC["Incident inbox"]
+    CAPA["CAPA board"]
   end
 
   Home --> BW
