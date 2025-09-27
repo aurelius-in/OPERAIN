@@ -162,17 +162,18 @@ Steps **2 (Procure & Provision)** and **7 (Improve/CAPA)** are **suite-only glue
 
 ---
 
-## End-to-end vertical workflow (Mermaid)
+## End-to-end workflow 
 
 ```mermaid
 flowchart TB
-  A[Plan\n(BayWalk)] --> B[Procure & Provision\n(POs, Device Vault, Enrollment)]
-  B --> C[Prove\n(PerceptionLab Report)]
-  C --> D[Run\n(EdgeSight-QA Pass/Fail)]
-  D --> E[Comply\n(RAINLane Green/Yellow)]
-  E --> F[Operate\n(DriftHawk Signed Release)]
-  F --> G[Improve\n(CAPA, Retrain, Re-test, Redeploy)]
+  A[Plan<br/>(BayWalk)] --> B[Procure & Provision<br/>(POs, Device Vault, Enrollment)]
+  B --> C[Prove<br/>(PerceptionLab Report)]
+  C --> D[Run<br/>(EdgeSight-QA Pass/Fail)]
+  D --> E[Comply<br/>(RAINLane Green/Yellow)]
+  E --> F[Operate<br/>(DriftHawk Signed Release)]
+  F --> G[Improve<br/>(CAPA, Retrain, Re-test, Redeploy)]
   G --> C
+
 ```
 
 ---
@@ -181,42 +182,42 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  subgraph UI[OPERAIN Hub UI]
+  subgraph OPERAIN_Hub_UI
     Home[Home: 7 Tiles]
     Locker[Evidence Locker]
   end
 
-  subgraph Plan[Plan]
+  subgraph Plan
     BW[BayWalk Service]
   end
 
-  subgraph Provision[Procure & Provision]
+  subgraph Procure_Provision
     POs[PO Board]
     Devices[Device Vault]
     Enroll[Provision Wizard]
   end
 
-  subgraph Prove[Prove]
+  subgraph Prove
     PL[PerceptionLab API]
-    Metrics[mAP/IoU/IDF1 + Latency]
+    Metrics[Accuracy/Latency Metrics]
   end
 
-  subgraph Run[Run]
+  subgraph Run
     Edge[Edge Services]
-    SCADA[Ignition/MQTT/OPC-UA]
+    SCADA[Ignition / MQTT / OPC-UA]
   end
 
-  subgraph Comply[Comply]
+  subgraph Comply
     RL[RAINLane Q&A]
   end
 
-  subgraph Operate[Operate]
+  subgraph Operate
     DH[DriftHawk GitOps]
     Policy[Policy Gates (OPA)]
-    Supply[SBOM + Signing]
+    Supply[SBOM & Signing]
   end
 
-  subgraph Improve[Improve]
+  subgraph Improve
     INC[Incident Inbox]
     CAPA[CAPA Board]
   end
@@ -230,6 +231,7 @@ flowchart TB
   Locker --- Edge
   Locker --- DH
   Locker --- RL
+
 ```
 
 ---
