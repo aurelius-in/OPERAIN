@@ -17,7 +17,7 @@ router = APIRouter(prefix="/webhooks", tags=["webhooks"])
 
 
 @router.post("/{source}")
-async def receive_webhook(source: str, request: Request, db: Session = next(get_db_session())):
+async def receive_webhook(source: str, request: Request, db: Session = Depends(get_db_session)):
 	try:
 		raw = await request.body()
 		payload = await request.json()
