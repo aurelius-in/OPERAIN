@@ -1,0 +1,8 @@
+Category,Allocation,AmountUSD,Notes
+"Marketing, outreach, and sales",25%,250000,"Field marketing, events, content, pilots, sales ops"
+Development & maintenance,20%,200000,"OPERAIN hub, Steps 2 & 7, evidence locker, reliability, webhooks"
+Security & compliance,15%,150000,"Signing, SBOM, policy gates, SOC 2 readiness"
+Pilot services (offset by revenue),15%,150000,"On‑site integration, SCADA connectors, change management"
+Cloud & tooling,10%,100000,"Hosting, observability, CI/CD, test envs"
+G&A and legal,10%,100000,"Contracts, accounting, IP, insurance"
+Contingency & reserve,5%,50000,Unforeseen costs
