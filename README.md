@@ -166,12 +166,12 @@ Steps **2 (Procure & Provision)** and **7 (Improve/CAPA)** are **suite-only glue
 
 ```mermaid
 flowchart TB
-  A[Plan<br/>(BayWalk)] --> B[Procure & Provision<br/>(POs, Device Vault, Enrollment)]
-  B --> C[Prove<br/>(PerceptionLab Report)]
-  C --> D[Run<br/>(EdgeSight-QA Pass/Fail)]
-  D --> E[Comply<br/>(RAINLane Green/Yellow)]
-  E --> F[Operate<br/>(DriftHawk Signed Release)]
-  F --> G[Improve<br/>(CAPA, Retrain, Re-test, Redeploy)]
+  A[Plan (BayWalk)] --> B[Procure &amp; Provision (POs, Device Vault, Enrollment)]
+  B --> C[Prove (PerceptionLab Report)]
+  C --> D[Run (EdgeSight-QA Pass/Fail)]
+  D --> E[Comply (RAINLane Green/Yellow)]
+  E --> F[Operate (DriftHawk Signed Release)]
+  F --> G[Improve (CAPA, Retrain, Re-test, Redeploy)]
   G --> C
 
 ```
@@ -182,7 +182,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  subgraph OPERAIN_Hub_UI
+  subgraph OPERAIN Hub UI
     Home[Home: 7 Tiles]
     Locker[Evidence Locker]
   end
@@ -191,7 +191,7 @@ flowchart TB
     BW[BayWalk Service]
   end
 
-  subgraph Procure_Provision
+  subgraph Procure &amp; Provision
     POs[PO Board]
     Devices[Device Vault]
     Enroll[Provision Wizard]
@@ -199,7 +199,7 @@ flowchart TB
 
   subgraph Prove
     PL[PerceptionLab API]
-    Metrics[Accuracy/Latency Metrics]
+    Metrics[Accuracy and Latency Metrics]
   end
 
   subgraph Run
@@ -208,13 +208,13 @@ flowchart TB
   end
 
   subgraph Comply
-    RL[RAINLane Q&A]
+    RL[RAINLane Q&amp;A]
   end
 
   subgraph Operate
     DH[DriftHawk GitOps]
     Policy[Policy Gates (OPA)]
-    Supply[SBOM & Signing]
+    Supply[SBOM &amp; Signing]
   end
 
   subgraph Improve
