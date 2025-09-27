@@ -332,27 +332,55 @@ Key tables (simplified):
 
 ## Install & quick start
 
-> **Prereqs:** Kubernetes/OpenShift cluster, container registry, Git, and access to SCADA connectors where applicable.
+> Prereqs: Git, Docker (for compose), Node 20+, Python 3.11+.
+
+### Option A: Local dev (fast reload)
 
 ```bash
-# 1) Clone hub + services (monorepo or submodules)
-git clone https://github.com/your-org/operain-hub
-cd operain-hub
+# 1) Clone
+git clone https://github.com/aurelius-in/OPERAIN
+cd OPERAIN
 
-# 2) Bootstrap namespaces & secrets
-make bootstrap          # sets namespaces, registry creds, signing keys
+# 2) Backend
+python -m venv .venv
+./.venv/Scripts/python -m pip install --upgrade pip
+./.venv/Scripts/pip install -r api/requirements.txt
 
-# 3) Deploy core services
-make deploy-core        # hub ui, locker api, auth, grafana
+# (Optional) Use Postgres instead of sqlite for dev
+# set TESTING=false in your environment and configure DB env vars
 
-# 4) Enable tiles as needed
-make enable-baywalk enable-perceptionlab enable-edgesight enable-rainlane enable-drifthawk
+# 3) Run API (FastAPI + Uvicorn)
+./.venv/Scripts/python -m uvicorn api.app:app --reload --host 0.0.0.0 --port 8000
 
-# 5) (Suite only) enable glue steps
-make enable-procure enable-improve
+# 4) Frontend
+cd web && npm install && npm run dev
+# open http://localhost:5173
 ```
 
-Open the hub, create a **Project**, and start at **Plan**.
+### Option B: Docker Compose (api, web, db, redis, nginx)
+
+```bash
+# 1) Copy env example (edit as needed)
+cp .env.example .env
+
+# 2) Up services
+docker compose up -d --build
+
+# 3) Open UI via nginx
+# open http://localhost
+# API proxied at http://localhost/api
+```
+
+### Seed sample data (optional)
+
+```bash
+# With local dev (sqlite default)
+./.venv/Scripts/python api/seed_dev.py
+
+# If using Postgres, ensure DB env vars are set and TESTING=false
+```
+
+Open the hub Home, verify the 7 tiles and health, then go to Procure & Provision.
 
 ---
 
