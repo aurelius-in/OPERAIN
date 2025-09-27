@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-operain}
+      POSTGRES_USER: ${POSTGRES_USER:-operain}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-operain}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile.api
+    env_file: .env.example
+    volumes:
+      - ./api:/app/api
+      - ./docs:/app/docs
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+
+  web:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile.web
+    env_file: .env.example
+    working_dir: /app/web
+    volumes:
+      - ./web:/app/web
+    ports:
+      - "8080:5173"
+    depends_on:
+      - api
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./infra/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+      - web
+
+volumes:
+  db_data:
+
