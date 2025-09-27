@@ -143,7 +143,7 @@ Steps **2 (Procure & Provision)** and **7 (Improve/CAPA)** are **suite-only glue
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/aurelius-in/perception-lab">
-    <img alt="PerceptionLab" src="https://raw.githubusercontent.com/aurelius-in/perception-lab/main/assets/perceptionlab_wordmark.png" height="100">
+    <img alt="PerceptionLab" src="https://raw.githubusercontent.com/aurelius-in/perception-lab/main/assets/pl-ani.gif" height="100">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/aurelius-in/DriftHawk">
