@@ -5,8 +5,6 @@
 
 ---
 
----
-
 ## Table of contents
 
 * [Overview](#overview)
@@ -134,6 +132,28 @@ All five core tools work alone **or** inside OPERAIN.
 | 6    | **DriftHawk**     | ✅                   | Platform/SRE, DevOps, security      |
 
 Steps **2 (Procure & Provision)** and **7 (Improve/CAPA)** are **suite-only glue** that make the end-to-end flow seamless.
+
+<p align="center">
+  <a href="https://github.com/aurelius-in/BayWalk">
+    <img alt="BayWalk" src="https://raw.githubusercontent.com/aurelius-in/BayWalk/main/bw_wordmark.png" height="100">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/aurelius-in/RAINLane">
+    <img alt="RAINLane" src="https://raw.githubusercontent.com/aurelius-in/RAINLane/main/rl_wordmark.png" height="100">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/aurelius-in/perception-lab">
+    <img alt="PerceptionLab" src="https://raw.githubusercontent.com/aurelius-in/perception-lab/main/assets/perceptionlab_wordmark.png" height="100">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/aurelius-in/DriftHawk">
+    <img alt="DriftHawk" src="https://raw.githubusercontent.com/aurelius-in/DriftHawk/main/dh_wordmark.png" height="100">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/aurelius-in/EdgeSight-QA">
+    <img alt="EdgeSight-QA" src="https://raw.githubusercontent.com/aurelius-in/EdgeSight-QA/main/esqa-banner.png" height="100">
+  </a>
+</p>
 
 ---
 
