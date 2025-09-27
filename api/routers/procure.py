@@ -6,6 +6,7 @@ import json as jsonlib
 
 from api.core.db import get_db_session
 from api.models.bom_item import BomItem
+from api.core.deps import require_roles
 from api.models.asset import Asset
 from api.models.po import PO
 
@@ -14,7 +15,7 @@ router = APIRouter(prefix="/procure", tags=["procure"])
 
 
 @router.post("/import-bom")
-async def import_bom(file: UploadFile = File(...), db: Session = Depends(get_db_session)):
+async def import_bom(file: UploadFile = File(...), db: Session = Depends(get_db_session), _=Depends(require_roles("Engineer","Admin"))):
 	content = await file.read()
 	items = []
 	if file.filename.endswith(".csv"):
@@ -48,18 +49,18 @@ def export_bom_csv(db: Session = Depends(get_db_session)):
 
 
 @router.get("/bom")
-def list_bom(db: Session = Depends(get_db_session)):
+def list_bom(db: Session = Depends(get_db_session), _=Depends(require_roles("Operator","Engineer","Quality","Auditor","Admin"))):
 	rows = db.query(BomItem).all()
 	return rows
 
 
 @router.get("/assets")
-def list_assets(db: Session = Depends(get_db_session)):
+def list_assets(db: Session = Depends(get_db_session), _=Depends(require_roles("Operator","Engineer","Quality","Auditor","Admin"))):
 	return db.query(Asset).all()
 
 
 @router.post("/assets")
-def create_asset(asset: dict, db: Session = Depends(get_db_session)):
+def create_asset(asset: dict, db: Session = Depends(get_db_session), _=Depends(require_roles("Engineer","Admin"))):
 	a = Asset(**asset)
 	db.add(a)
 	db.commit()
@@ -68,7 +69,7 @@ def create_asset(asset: dict, db: Session = Depends(get_db_session)):
 
 
 @router.post("/provision/{asset_id}")
-def provision_asset(asset_id: int, db: Session = Depends(get_db_session)):
+def provision_asset(asset_id: int, db: Session = Depends(get_db_session), _=Depends(require_roles("Engineer","Admin"))):
 	a = db.get(Asset, asset_id)
 	if not a:
 		return {"status": "not_found"}
@@ -78,13 +79,13 @@ def provision_asset(asset_id: int, db: Session = Depends(get_db_session)):
 
 
 @router.post("/discover-cameras")
-def discover_cameras(endpoints: list[dict]):
+def discover_cameras(endpoints: list[dict], _=Depends(require_roles("Engineer","Admin"))):
 	# stub: accept and return
 	return {"saved": len(endpoints)}
 
 
 @router.post("/po")
-def create_po(po: dict, db: Session = Depends(get_db_session)):
+def create_po(po: dict, db: Session = Depends(get_db_session), _=Depends(require_roles("Engineer","Admin"))):
 	p = PO(project_id=int(po.get("project_id", 0)), body_json=jsonlib.dumps(po))
 	db.add(p)
 	db.commit()
