@@ -166,12 +166,12 @@ Steps **2 (Procure & Provision)** and **7 (Improve/CAPA)** are **suite-only glue
 
 ```mermaid
 flowchart TB
-  A["Plan<br/>(BayWalk)"] --> B["Procure and Provision<br/>(POs, Device Vault, Enrollment)"]
+  A["Plan<br/>(BayWalk)"] --> B["Procure and Provision<br/>(POs, Device Vault,<br/>Enrollment)"]
   B --> C["Prove<br/>(PerceptionLab report)"]
   C --> D["Run<br/>(EdgeSight-QA pass/fail)"]
   D --> E["Comply<br/>(RAINLane green/yellow)"]
   E --> F["Operate<br/>(DriftHawk signed release)"]
-  F --> G["Improve<br/>(CAPA, retrain, re-test, redeploy)"]
+  F --> G["Improve<br/>(CAPA, retrain, re-test,<br/>redeploy)"]
   G --> C
 
 
