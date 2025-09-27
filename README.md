@@ -138,25 +138,26 @@ Steps **2 (Procure & Provision)** and **7 (Improve/CAPA)** are **suite-only glue
 
 <p align="center">
   <a href="https://github.com/aurelius-in/BayWalk">
-    <img alt="BayWalk" src="https://raw.githubusercontent.com/aurelius-in/BayWalk/main/bw_wordmark.png" height="80">
+    <img alt="BayWalk" src="https://raw.githubusercontent.com/aurelius-in/BayWalk/main/bw_wordmark.png" height="100">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/aurelius-in/RAINLane">
-    <img alt="RAINLane" src="https://raw.githubusercontent.com/aurelius-in/RAINLane/main/rl_wordmark.png" height="80">
+    <img alt="RAINLane" src="https://raw.githubusercontent.com/aurelius-in/RAINLane/main/rl_wordmark.png" height="100">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/aurelius-in/perception-lab">
-    <img alt="PerceptionLab" src="https://raw.githubusercontent.com/aurelius-in/perception-lab/main/assets/pl_wordmark.png" height="80">
+    <img alt="PerceptionLab" src="https://github.com/aurelius-in/perception-lab/raw/main/assets/pl-ani.gif" height="100">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/aurelius-in/DriftHawk">
-    <img alt="DriftHawk" src="https://raw.githubusercontent.com/aurelius-in/DriftHawk/main/dh_wordmark.png" height="80">
+    <img alt="DriftHawk" src="https://raw.githubusercontent.com/aurelius-in/DriftHawk/main/dh_wordmark.png" height="100">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/aurelius-in/EdgeSight-QA">
-    <img alt="EdgeSight-QA" src="https://raw.githubusercontent.com/aurelius-in/EdgeSight-QA/main/esqa-banner.png" height="80">
+    <img alt="EdgeSight-QA" src="https://raw.githubusercontent.com/aurelius-in/EdgeSight-QA/main/esqa-banner.png" height="100">
   </a>
 </p>
+
 
 
 ---
