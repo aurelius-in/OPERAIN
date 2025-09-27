@@ -6,6 +6,7 @@ import ProcureProvision from './routes/ProcureProvision'
 import Improve from './routes/Improve'
 import EvidenceLocker from './routes/EvidenceLocker'
 import Settings from './routes/Settings'
+import RequireAuth from './components/RequireAuth'
 
 export default function App() {
 	const [user, setUser] = useState<any>(null)
@@ -27,8 +28,8 @@ export default function App() {
 			<div style={{ padding: 16 }}>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/procure-provision" element={<ProcureProvision />} />
-					<Route path="/improve" element={<Improve />} />
+					<Route path="/procure-provision" element={<RequireAuth><ProcureProvision /></RequireAuth>} />
+					<Route path="/improve" element={<RequireAuth><Improve /></RequireAuth>} />
 					<Route path="/evidence" element={<EvidenceLocker />} />
 					<Route path="/settings" element={<Settings />} />
 					<Route path="/auth" element={<AuthCallback />} />
