@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { listBOM, listAssets, createPO, createAsset, provisionAsset, importBOM, exportBOMCsvUrl, discoverCameras } from '../api/procure'
+import { me } from '../api/auth'
 
 type BomItem = { id: number; sku: string; description: string; qty: number; alt_sku?: string }
 type Asset = { id: number; type: string; serial: string; status: string }
@@ -10,11 +11,13 @@ export default function ProcureProvision() {
 	const [assets, setAssets] = useState<Asset[]>([])
 	const [newAsset, setNewAsset] = useState<Partial<Asset>>({ type: 'edge', serial: '' })
 	const [rtsp, setRtsp] = useState<Array<{ url: string; user?: string; pass?: string }>>([{ url: '' }])
+    const [user, setUser] = useState<any>(null)
 
-	useEffect(() => {
-		listBOM().then(setBom)
-		listAssets().then(setAssets)
-	}, [])
+    useEffect(() => {
+        listBOM().then(setBom)
+        listAssets().then(setAssets)
+        me().then(setUser).catch(()=>setUser(null))
+    }, [])
 
 	return (
 		<div>
@@ -38,9 +41,9 @@ export default function ProcureProvision() {
 							<tr><th>SKU</th><th>Description</th><th>Qty</th><th /></tr>
 						</thead>
 						<tbody>
-							{bom.map(i => (
-								<tr key={i.id}><td>{i.sku}</td><td>{i.description}</td><td>{i.qty}</td><td><button onClick={() => createPO({ project_id: 1, items: [i] })}>Add to PO</button></td></tr>
-							))}
+                            {bom.map(i => (
+                                <tr key={i.id}><td>{i.sku}</td><td>{i.description}</td><td>{i.qty}</td><td>{(user?.role === 'Engineer' || user?.role === 'Admin') && <button onClick={() => createPO({ project_id: 1, items: [i] })}>Add to PO</button>}</td></tr>
+                            ))}
 						</tbody>
 					</table>
 				</div>
@@ -55,7 +58,7 @@ export default function ProcureProvision() {
 							<option value="camera">camera</option>
 						</select>
 						<input placeholder="Serial" value={newAsset.serial || ''} onChange={e => setNewAsset(a => ({ ...a, serial: e.target.value }))} />
-						<button onClick={async () => { await createAsset({ project_id: 1, type: newAsset.type, serial: newAsset.serial, status: 'new' }); setAssets(await listAssets()) }}>Add</button>
+                        {(user?.role === 'Engineer' || user?.role === 'Admin') && <button onClick={async () => { await createAsset({ project_id: 1, type: newAsset.type, serial: newAsset.serial, status: 'new' }); setAssets(await listAssets()) }}>Add</button>}
 					</div>
 					<table>
 						<thead>
@@ -63,7 +66,7 @@ export default function ProcureProvision() {
 						</thead>
 						<tbody>
 							{assets.map(a => (
-								<tr key={a.id}><td>{a.id}</td><td>{a.type}</td><td>{a.serial}</td><td>{a.status}</td><td><button onClick={async () => { await provisionAsset(a.id); setAssets(await listAssets()) }}>Mark Provisioned</button></td></tr>
+                                <tr key={a.id}><td>{a.id}</td><td>{a.type}</td><td>{a.serial}</td><td>{a.status}</td><td>{(user?.role === 'Engineer' || user?.role === 'Admin') && <button onClick={async () => { await provisionAsset(a.id); setAssets(await listAssets()) }}>Mark Provisioned</button>}</td></tr>
 							))}
 						</tbody>
 					</table>
