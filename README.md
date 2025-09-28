@@ -369,6 +369,15 @@ docker compose up -d --build
 # 3) Open UI via nginx
 # open http://localhost
 # API proxied at http://localhost/api
+
+### Deployment (production outline)
+
+- Build images via CI (web static, api), push to registry
+- Configure Postgres and Redis (optional) with backups and monitoring
+- Provide an `.env` with external BASE_URLs and webhook secret
+- Run behind Nginx/ingress, TLS terminated, set CORS to your domains
+- Configure OAuth2/OIDC provider and set `ALLOW_LOCAL_LOGIN=false`
+- Point external tools’ webhooks at `/webhooks/:source` with shared secret
 ```
 
 ### Seed sample data (optional)

@@ -14,9 +14,10 @@ from api.routers import procure, improve, integrations, webhooks, evidence, auth
 def create_app() -> FastAPI:
 	configure_logging()
 	app = FastAPI(title="OPERAIN API")
+	allowed = [o.strip() for o in settings.allowed_cors_origins.split(',') if o.strip()]
 	app.add_middleware(
 		CORSMiddleware,
-		allow_origins=["*"],
+		allow_origins=allowed or ["*"],
 		allow_credentials=True,
 		allow_methods=["*"],
 		allow_headers=["*"],

@@ -27,6 +27,7 @@ class Settings(BaseSettings):
 	oauth_client_id: Optional[str] = Field(None, alias="OAUTH_CLIENT_ID")
 	oauth_client_secret: Optional[str] = Field(None, alias="OAUTH_CLIENT_SECRET")
 	allow_local_login: bool = Field(True, alias="ALLOW_LOCAL_LOGIN")
+	allowed_cors_origins: str = Field("*", alias="ALLOWED_CORS_ORIGINS")
 
 	locker_bucket_path: str = Field("./_locker_dev", alias="LOCKER_BUCKET_PATH")
 	testing: bool = Field(True, alias="TESTING")
