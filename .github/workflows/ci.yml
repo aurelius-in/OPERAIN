@@ -49,4 +49,8 @@ jobs:
         working-directory: web
         run: |
           npm run build
+      - name: UI tests
+        working-directory: web
+        run: |
+          npm run test
 
