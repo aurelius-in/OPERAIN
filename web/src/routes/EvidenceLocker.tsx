@@ -8,6 +8,7 @@ type Item = {
 	project_id?: number
 	sku?: string
 	created_at?: string
+    metrics?: { map?: number; iou?: number; idf1?: number; latency_ms?: number }
 }
 
 export default function EvidenceLocker() {
@@ -37,7 +38,16 @@ export default function EvidenceLocker() {
 					<div key={i.ref} className="tile">
 						<div style={{ fontWeight: 600 }}>{i.type}</div>
 						<div style={{ fontSize: 12, opacity: 0.8 }}>ref: {i.ref}</div>
-						{i.url && <a href={i.url} target="_blank" rel="noreferrer">Open</a>}
+						{i.url && (i.type.includes('snapshot') ? (
+							<img src={i.url} alt={i.ref} style={{ maxWidth: '100%', borderRadius: 6 }} />
+						) : (
+							<a href={i.url} target="_blank" rel="noreferrer">Open</a>
+						))}
+						{i.metrics && (
+							<div style={{ fontSize: 12, marginTop: 6 }}>
+								mAP: {i.metrics.map ?? '-'} · IoU: {i.metrics.iou ?? '-'} · IDF1: {i.metrics.idf1 ?? '-'} · Latency: {i.metrics.latency_ms ?? '-'}ms
+							</div>
+						)}
 						<div style={{ fontSize: 12 }}>{i.created_at}</div>
 					</div>
 				))}

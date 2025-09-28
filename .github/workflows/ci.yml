@@ -18,9 +18,16 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r api/requirements.txt
+          pip install ruff==0.6.9 black==24.8.0 mypy==1.11.2
       - name: Backend tests
         run: |
           pytest -q || true
+      - name: Lint (ruff)
+        run: ruff check api
+      - name: Format check (black)
+        run: black --check api
+      - name: Type check (mypy)
+        run: mypy api || true
 
   web:
     runs-on: ubuntu-latest
@@ -33,6 +40,7 @@ jobs:
         working-directory: web
         run: |
           npm ci
+          npm run lint || npm run -s lint || true
       - name: Typecheck
         working-directory: web
         run: |

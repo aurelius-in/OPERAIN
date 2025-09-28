@@ -1,0 +1,38 @@
+name: Release Images
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract tag
+        id: vars
+        run: echo "tag=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+
+      - name: Build API image
+        run: |
+          docker build -f infra/Dockerfile.api -t ghcr.io/${{ github.repository_owner }}/operain-api:${{ steps.vars.outputs.tag }} .
+          docker push ghcr.io/${{ github.repository_owner }}/operain-api:${{ steps.vars.outputs.tag }}
+
+      - name: Build Web image
+        run: |
+          docker build -f infra/Dockerfile.web -t ghcr.io/${{ github.repository_owner }}/operain-web:${{ steps.vars.outputs.tag }} .
+          docker push ghcr.io/${{ github.repository_owner }}/operain-web:${{ steps.vars.outputs.tag }}
+

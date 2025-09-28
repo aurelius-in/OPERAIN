@@ -26,6 +26,7 @@ class Settings(BaseSettings):
 	oauth_issuer_url: Optional[str] = Field(None, alias="OAUTH_ISSUER_URL")
 	oauth_client_id: Optional[str] = Field(None, alias="OAUTH_CLIENT_ID")
 	oauth_client_secret: Optional[str] = Field(None, alias="OAUTH_CLIENT_SECRET")
+	oauth_redirect_url: Optional[str] = Field(None, alias="OAUTH_REDIRECT_URL")
 	allow_local_login: bool = Field(True, alias="ALLOW_LOCAL_LOGIN")
 	allowed_cors_origins: str = Field("*", alias="ALLOWED_CORS_ORIGINS")
 
