@@ -7,8 +7,10 @@ export default function Home() {
 	const [health, setHealth] = useState<Health>({})
 	const [settings, setSettings] = useState<any>({})
 	useEffect(() => {
-		axios.get('/api/integrations/health').then(r => setHealth(r.data)).catch(() => setHealth({}))
-		axios.get('/api/settings').then(r => setSettings(r.data)).catch(() => setSettings({}))
+		let done = false
+		axios.get('/api/integrations/health').then(r => !done && setHealth(r.data)).catch(() => !done && setHealth({}))
+		axios.get('/api/settings').then(r => !done && setSettings(r.data)).catch(() => !done && setSettings({}))
+		return () => { done = true }
 	}, [])
 
 	const open = (url?: string) => { if (url) window.open(url, '_blank') }
