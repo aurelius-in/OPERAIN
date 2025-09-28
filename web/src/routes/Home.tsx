@@ -16,49 +16,49 @@ export default function Home() {
 	return (
 		<div className="tile-grid">
 			<div className="tile">
-				<h3>Plan (BayWalk)</h3>
+				<h3>Plan (BayWalk) <span title="Open the planning tool to create BOM and coverage">?</span></h3>
 				<span className={`badge ${health.baywalk?.status || 'red'}`}>{health.baywalk?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
 					<button onClick={() => open(settings.baywalk_base_url)}>Open BayWalk</button>
 				</div>
 			</div>
 			<div className="tile">
-				<h3>Procure & Provision</h3>
+				<h3>Procure & Provision <span title="Manage POs, devices, and enrollment">?</span></h3>
 				<p>PO Board, Device Vault, Provision Wizard, Camera Discovery</p>
 				<div style={{ marginTop: 8 }}>
 					<a href="/procure-provision">Open</a>
 				</div>
 			</div>
 			<div className="tile">
-				<h3>Prove (PerceptionLab)</h3>
+				<h3>Prove (PerceptionLab) <span title="Request and view evaluation reports">?</span></h3>
 				<span className={`badge ${health.perceptionlab?.status || 'red'}`}>{health.perceptionlab?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
 					<button onClick={() => open(settings.perceptionlab_base_url)}>Open PerceptionLab</button>
 				</div>
 			</div>
 			<div className="tile">
-				<h3>Run (EdgeSight-QA)</h3>
+				<h3>Run (EdgeSight-QA) <span title="Monitor pass/fail on the line">?</span></h3>
 				<span className={`badge ${health.edgesight?.status || 'red'}`}>{health.edgesight?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
 					<button onClick={() => open(settings.edgesight_base_url)}>Open EdgeSight-QA</button>
 				</div>
 			</div>
 			<div className="tile">
-				<h3>Comply (RAINLane)</h3>
+				<h3>Comply (RAINLane) <span title="Get SOP answers with citations">?</span></h3>
 				<span className={`badge ${health.rainlane?.status || 'red'}`}>{health.rainlane?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
 					<button onClick={() => open(settings.rainlane_base_url)}>Open RAINLane</button>
 				</div>
 			</div>
 			<div className="tile">
-				<h3>Operate (DriftHawk)</h3>
+				<h3>Operate (DriftHawk) <span title="Promote signed releases safely">?</span></h3>
 				<span className={`badge ${health.drifthawk?.status || 'red'}`}>{health.drifthawk?.status || 'red'}</span>
 				<div style={{ marginTop: 8 }}>
 					<button onClick={() => open(settings.drifthawk_base_url)}>Open DriftHawk</button>
 				</div>
 			</div>
 			<div className="tile">
-				<h3>Improve</h3>
+				<h3>Improve <span title="Incidents → CAPA → Re-test → Promote">?</span></h3>
 				<p>Incidents, CAPA, Re-test, Promote</p>
 				<div style={{ marginTop: 8 }}>
 					<a href="/improve">Open</a>
