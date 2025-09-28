@@ -5,6 +5,7 @@ from api.core.db import get_db_session
 from api.models.incident import Incident
 from api.models.capa import Capa
 from api.models.eval_report import EvalReport
+from api.core.deps import require_roles
 from api.models.release import Release
 
 
@@ -12,12 +13,12 @@ router = APIRouter(prefix="/improve", tags=["improve"])
 
 
 @router.get("/incidents")
-def list_incidents(db: Session = Depends(get_db_session)):
+def list_incidents(db: Session = Depends(get_db_session), _=Depends(require_roles("Operator","Engineer","Quality","Auditor","Admin"))):
 	return db.query(Incident).all()
 
 
 @router.post("/incidents")
-def create_incident(payload: dict, db: Session = Depends(get_db_session)):
+def create_incident(payload: dict, db: Session = Depends(get_db_session), _=Depends(require_roles("Quality","Engineer","Admin"))):
 	inc = Incident(**payload)
 	db.add(inc)
 	db.commit()
@@ -26,7 +27,7 @@ def create_incident(payload: dict, db: Session = Depends(get_db_session)):
 
 
 @router.patch("/incidents/{incident_id}")
-def update_incident(incident_id: int, payload: dict, db: Session = Depends(get_db_session)):
+def update_incident(incident_id: int, payload: dict, db: Session = Depends(get_db_session), _=Depends(require_roles("Quality","Engineer","Admin"))):
 	inc = db.get(Incident, incident_id)
 	if not inc:
 		return {"status": "not_found"}
@@ -37,7 +38,7 @@ def update_incident(incident_id: int, payload: dict, db: Session = Depends(get_d
 
 
 @router.post("/capa")
-def create_capa_from_incident(payload: dict, db: Session = Depends(get_db_session)):
+def create_capa_from_incident(payload: dict, db: Session = Depends(get_db_session), _=Depends(require_roles("Quality","Engineer","Admin"))):
 	c = Capa(**payload)
 	db.add(c)
 	db.commit()
@@ -46,7 +47,7 @@ def create_capa_from_incident(payload: dict, db: Session = Depends(get_db_sessio
 
 
 @router.patch("/capa/{capa_id}")
-def update_capa(capa_id: int, payload: dict, db: Session = Depends(get_db_session)):
+def update_capa(capa_id: int, payload: dict, db: Session = Depends(get_db_session), _=Depends(require_roles("Quality","Engineer","Admin"))):
 	c = db.get(Capa, capa_id)
 	if not c:
 		return {"status": "not_found"}
@@ -57,7 +58,7 @@ def update_capa(capa_id: int, payload: dict, db: Session = Depends(get_db_sessio
 
 
 @router.post("/retest/{incident_id}")
-def retest_incident(incident_id: int, db: Session = Depends(get_db_session)):
+def retest_incident(incident_id: int, db: Session = Depends(get_db_session), _=Depends(require_roles("Engineer","Quality","Admin"))):
 	# stub: create an eval report
 	rep = EvalReport(model_version_id=None, url="https://example.com/report.pdf", map=0.5, iou=0.6, idf1=0.7, latency_ms=30)
 	db.add(rep)
@@ -67,7 +68,7 @@ def retest_incident(incident_id: int, db: Session = Depends(get_db_session)):
 
 
 @router.post("/promote")
-def promote_release(payload: dict, db: Session = Depends(get_db_session)):
+def promote_release(payload: dict, db: Session = Depends(get_db_session), _=Depends(require_roles("Engineer","Admin"))):
 	rel = Release(**payload)
 	db.add(rel)
 	db.commit()
