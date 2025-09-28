@@ -1,10 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { loginDev } from '../api/auth'
+import axios from 'axios'
 
 export default function AuthCallback() {
 	const [email, setEmail] = useState('user@example.com')
 	const [password, setPassword] = useState('dev')
 	const [msg, setMsg] = useState('')
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search)
+		const code = params.get('code')
+		if (code) {
+			axios.get('/api/auth/oidc/callback?code=' + encodeURIComponent(code)).then(r => {
+				setMsg('Logged in via SSO. You may navigate now.')
+			}).catch(()=>{})
+		}
+	}, [])
 	return (
 		<div>
 			<h2>Login</h2>
