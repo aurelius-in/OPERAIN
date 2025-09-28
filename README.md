@@ -15,8 +15,8 @@
 * [Seven steps at a glance](#seven-steps-at-a-glance)
 * [Detailed steps](#detailed-steps)
 * [Suite vs. standalone tools](#suite-vs-standalone-tools)
-* [End-to-end vertical workflow (Mermaid)](#end-to-end-vertical-workflow-mermaid)
-* [Architectural view (Mermaid)](#architectural-view-mermaid)
+* [End-to-end workflow](#end-to-end-workflow)
+* [Architectural view](#architectural-view)
 * [Primary use cases](#primary-use-cases)
 * [User stories](#user-stories)
 * [Technology, explained simply](#technology-explained-simply)
@@ -179,7 +179,7 @@ flowchart TB
 
 ---
 
-## Architectural view (Mermaid)
+## Architectural view
 
 ```mermaid
 flowchart TB
