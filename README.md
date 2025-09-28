@@ -29,6 +29,8 @@
 * [FAQ](#faq)
 * [Contributing](#contributing)
 * [License](#license)
+* [Security](#security)
+* [Deployment](#deployment)
 
 ---
 
@@ -437,3 +439,11 @@ operain/
 PRs welcome! Please open an issue first for major changes. See `docs/CONTRIBUTING.md`.
 
 *Questions or demo requests?* Open an issue or contact the maintainers.
+
+## Security
+
+See `SECURITY.md` for security posture and reporting guidance.
+
+## Deployment
+
+See `DEPLOYMENT.md` for deployment steps and configuration.
